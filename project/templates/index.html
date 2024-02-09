@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            background: url('../static/images/Job-Search-Services.gif') center/cover fixed;
+            /* Add your background GIF URL */
+            background-color: rgba(255, 255, 255, 0.5);
+            /* Set the background color with transparency */
+            position: relative;
+        }
+        #hunt_institut{
+            position: absolute;
+            top: 1vw;
+            left: 1vw;
+            width: 200px;
+            /* Set the width of the GIF */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+        #datathon_index {
+            position: absolute;
+            top: 4vw;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 5%;
+            width: 20vw;
+            /* Set the width of the GIF */
+            height: auto;
+            /* Maintain aspect ratio */
+
+        }
+        
+        h1 {
+            text-align: center;
+            -webkit-text-fill-color: #ffffff;
+            font-size: 2rem;
+        }
+
+        .list_member,
+        .list_team {
+
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .list_team {
+            margin-top: 20px;
+        }
+
+        .list_topic {
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        button {
+            position: relative;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            /* Green */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            /* Make the button occupy a full line */
+            font-size: 18px;
+            margin: 10px 0;
+            cursor: pointer;
+            overflow: hidden;
+            margin-bottom: 10vw;
+            margin-top: 5vh;
+        }
+
+        @media screen and (max-width: 768px) {
+            #datathon_index {
+                width: 40vw;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .list_member,
+            .list_team,
+            .list_topic {
+                font-size: 0.8rem;
+            }
+
+            button {
+                margin-bottom: 5vw;
+            }
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            /* Ensure the width covers the entire button */
+            height: 5px;
+            background-color: #46c04a;
+            /* Green */
+            transform: scaleX(0);
+            /* Initial state: scaled to zero */
+            transform-origin: right;
+            transition: transform 1s;
+            /* Control the transition time */
+        }
+
+        button:hover::after {
+            transform: scaleX(1);
+            /* Full width on hover */
+            transform-origin: left;
+        }
+
+        /* Pseudo-element styles for the progress bar */
+
+        /* Icon links styles */
+        .icon-links {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            display: flex;
+            align-items: flex-end;
+            /* Align items to the bottom */
+        }
+
+        /* Icon links styles */
+        .icon-links a {
+            margin-right: 30px;
+            /* Increase margin for larger spacing */
+            color: #54435c;
+            /* Change icon color to #ab7d4e */
+            text-decoration: none;
+            font-size: 30px;
+            /* Double the font size */
+            position: relative;
+            transition: color 0.3s;
+            /* Control the transition time for color change */
+        }
+
+        .icon-links a:hover {
+            color: #c0a4ba;
+            /* Change color on hover */
+        }
+
+        .icon-links a::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.3s, font-size 0.3s;
+            /* Control the transition time for opacity and font-size */
+            pointer-events: none;
+            font-size: 14px;
+            /* Smaller font size */
+        }
+
+        .icon-links a:hover::before {
+            opacity: 1;
+        }
+
+
+        /* Style for the progress bar container */
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        /* Style for the progress bar */
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #46c04a;
+            /* Green */
+            border-radius: 5px;
+            transition: width 1s;
+            /* Control the transition time for progress */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Add the GIF element -->
+    <!-- <img id="corner-gif" src='./images/chinese-3407_256.gif' alt="Corner GIF"> -->
+
+    <div class="icon-links">
+        <a href="https://github.com/luofugui/Databot_Project" target="_blank" data-tooltip="GitHub"><i
+                class="fab fa-github"></i></a>
+        <a href="#" target="_blank" data-tooltip="Share"><i class="fas fa-share"></i></a>
+        <a href="mailto:jl1254@duke.edu" data-tooltip="Email"><i class="far fa-envelope"></i></a>
+        <a href="https://www.buymeacoffee.com/databot" target="_blank" data-tooltip="Buy Me a Coffee"><i
+                class="fas fa-coffee"></i></a>
+    </div>
+    <img id="hunt_institut" src="{{ url_for('static', filename='images/hunt_institut.png') }}" alt="png">
+    <img id="datathon_index" src="{{ url_for('static', filename='images/datathon.png') }}" alt="png">
+    <h1>Technology Seeds: Planting Career Ideas in 5th-Grade Minds</h1>
+    <ul class="list_team">Team: DataBot</ul>
+    <ul class="list_member">Yabei Zeng, Jiechen Li, Yanxin Luo</ul>
+    <button onclick="performLogin()">Start Now</button>
+
+    <!-- <button onclick="performLogin()">Start Now</button> -->
+
+    <!-- <script src="./JS/index.js"></script>
+     -->
+    <script>
+        function performLogin() {
+            // Simulate an asynchronous operation (e.g., sending a login request to a server)
+            setTimeout(function () {
+                // Simulate redirect to home.html after successful login
+                window.location.href = 'home.html';
+            }, 500); // Simulate the time needed for the login operation (1 second in this case)
+        }
+    </script>
+</body>
+
+</html>
